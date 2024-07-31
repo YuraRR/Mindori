@@ -1,0 +1,54 @@
+@import url("https://fonts.cdnfonts.com/css/canela-text-trial");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Canela Text Trial";
+}
+
+@font-face {
+  font-family: "Hortensia";
+  src: url("/fonts/Hortensia.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Glock Grotesque";
+  src: url("/fonts/GlockGrotesque-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Canela Deck Trial";
+  src: url("/fonts/Canela Deck Regular Trial.ttf") format("truetype");
+}
+
+body {
+  @apply bg-lightBeige;
+}
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  @apply px-4 md:px-10;
+}
+.adaptiveGrid {
+  @apply grid grid-cols-1 gap-y-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 lg:gap-y-12;
+}
+h1 {
+  font-size: clamp(30px, 48px, 3vw);
+  font-weight: 400;
+  line-height: clamp(36px, 57.6px, 3vw);
+  text-align: left;
+  color: white;
+}
+h2 {
+  font-size: clamp(24px, 48px, 5vw);
+  font-weight: 400;
+}
+h3 {
+  font-size: clamp(18px, 36px, 3vw);
+  font-weight: 400;
+}
+html {
+  overflow-y: initial !important;
+  padding-right: 0 !important;
+}

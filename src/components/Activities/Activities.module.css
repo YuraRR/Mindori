@@ -1,0 +1,40 @@
+.gridPc {
+  @apply grid mx-auto gap-2 sm:gap-[21px];
+  max-height: 618px;
+  max-width: 1282px;
+  grid-template-areas:
+    "i1 i1 i1 i2 i2 i5 i5"
+    "i3 i3 i4 i4 i4 i5 i5";
+
+  img {
+    height: 100%;
+  }
+}
+.gridMobile {
+  @apply grid mx-auto gap-3;
+  max-height: 518px;
+  max-width: 343px;
+  grid-template-areas:
+    "i1 i1 i1 i2 i2"
+    "i3 i3 i3 i3 i3"
+    "i4 i4 i4 i5 i5";
+
+  img {
+    height: 100%;
+  }
+}
+.i1 {
+  grid-area: i1;
+}
+.i2 {
+  grid-area: i2;
+}
+.i3 {
+  grid-area: i3;
+}
+.i4 {
+  grid-area: i4;
+}
+.i5 {
+  grid-area: i5;
+}

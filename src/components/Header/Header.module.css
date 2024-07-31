@@ -1,0 +1,10 @@
+.Header {
+  @apply fixed w-screen top-0 z-50;
+  background: rgba(208, 208, 208, 0.4);
+  backdrop-filter: blur(3px);
+
+  a {
+    @apply text-xl font-normal leading-6;
+    cursor: pointer;
+  }
+}

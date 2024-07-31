@@ -1,0 +1,36 @@
+.react-datepicker__day {
+  @apply w-8 h-8 font-canela !important;
+}
+.react-datepicker__day--in-range {
+  @apply bg-lightBlue  !important;
+}
+.react-datepicker__day--selecting-range-end,
+.react-datepicker__day--selecting-range-start {
+  @apply bg-lightGreen !important;
+}
+
+.react-datepicker__day--selected {
+  @apply bg-lightGreen !important;
+}
+
+.react-datepicker__day--selected:hover {
+  @apply bg-darkGreen !important;
+}
+
+.react-datepicker-wrapper {
+  @apply max-w-60 w-full !important;
+}
+.react-datepicker__children-container {
+  @apply w-full !important;
+}
+
+.datePicker:first-child .react-datepicker-popper {
+  @apply ml-[69px] md:ml-8 lg:ml-0;
+}
+.datePicker:last-child .react-datepicker-popper {
+  @apply -left-16 md:-left-8 lg:-left-0 !important;
+}
+.react-datepicker__month-select,
+.react-datepicker__year-select {
+  @apply bg-transparent !important;
+}

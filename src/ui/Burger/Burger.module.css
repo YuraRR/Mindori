@@ -1,0 +1,35 @@
+.burger_btn {
+  display: none;
+  position: relative;
+  height: 21px;
+  width: 24px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.burger_btn::before,
+.burger_btn::after,
+.burger_btn span {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: inherit;
+  background-color: black;
+  height: 3px;
+  border-radius: 5px;
+}
+
+.burger_btn span {
+  top: 9px;
+}
+
+.burger_btn::after {
+  top: unset;
+  bottom: 0;
+}
+
+@media (max-width: 1024px) {
+  .burger_btn {
+    display: flex;
+  }
+}
