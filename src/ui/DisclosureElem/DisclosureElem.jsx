@@ -4,11 +4,11 @@ import plus from "/ui/plus.svg";
 
 export default function DisclosureElem({ title, text }) {
   return (
-    <Disclosure as="div" className="relative max-w-[984px] border-darkGreen border-b pb-5 sm:pb-8 mx-6">
+    <Disclosure as="div" className="relative max-w-[984px] border-darkGreen border-b pb-4 sm:pb-6 pl-6 pr-2">
       {({ open }) => (
         <>
           <div className="flex cursor-pointer">
-            <DisclosureButton className="flex sm:font-glock text-20 font-medium pt-8 text-left">
+            <DisclosureButton className="flex sm:font-glock text-20 font-medium pt-8 text-left w-full">
               {title}
             </DisclosureButton>
             <DisclosureButton as="button" className="pt-10 p-3 ml-auto">
@@ -16,7 +16,7 @@ export default function DisclosureElem({ title, text }) {
             </DisclosureButton>
           </div>
 
-          <DisclosurePanel className="text-14 sm:font-glock font-light pt-3 max-w-[228px] xs:max-w-[887px]">
+          <DisclosurePanel className="text-14 sm:font-glock font-light pt-3 max-w-[228px] xs:max-w-[887px] leading-5">
             {text}
           </DisclosurePanel>
         </>

@@ -32,6 +32,7 @@ export default [
       "Сhildren under the age of 6 stay free of charge",
       "Check-in at 14:00, check-out at 12:00",
     ],
+    guestsCapacity: 3,
     tags: {
       guests: "3 guests",
       area: "50 m²",
@@ -59,6 +60,8 @@ export default [
       "Geodesic Dome",
       "Geodesic Dome",
     ],
+    imageText: "Enjoy nature, sunsets and stars from the comfort of your bed",
+
     price: 110,
   },
 
@@ -106,6 +109,7 @@ export default [
       "Children under the age of 6 stay free of charge",
       "Check-in at 14:00, check-out at 12:00",
     ],
+    guestsCapacity: 4,
     tags: {
       guests: "4 guests",
       area: "60 m²",
@@ -117,6 +121,7 @@ export default [
       bedSize: "King size bed",
       area: "50 m² area",
       smoking: "No smoking",
+      pets: "Pet friendly",
       parking: "Free parking",
       bathroom: "Bathroom",
     },
@@ -130,6 +135,7 @@ export default [
       "A-Frame Cabin-Tent",
       "A-Frame Cabin-Tent",
     ],
+    imageText: "Immerse yourself in nature with rustic charm and modern comfort",
     price: 100,
   },
   {
@@ -173,6 +179,7 @@ export default [
       "Leave children unattended",
       "Stay long in the thermal zone",
     ],
+    guestsCapacity: 2,
     tags: {
       guests: "2 guests",
       area: "50 m²",
@@ -181,7 +188,9 @@ export default [
       food: "food",
     },
     extraTags: {
+      bedSize: "Full size bed",
       area: "35 m² area",
+      sauna: "Sauna",
       smoking: "No smoking",
       parking: "Free parking",
       bathroom: "Bathroom",
@@ -196,6 +205,7 @@ export default [
       "Sauna, Furako",
       "Sauna, Furako",
     ],
+    imageText: "Meet warmth relaxation in the perfect harmony of nature",
     price: 70,
   },
   {
@@ -238,8 +248,9 @@ export default [
     a genuine Finnish experience. Whether you're soothing sore muscles after a day of outdoor activities 
     or simply enjoying a peaceful retreat, this sauna provides the perfect environment for rejuvenation.`,
     extraInfo: [],
+    guestsCapacity: 4,
     tags: {
-      guests: "3 guests",
+      guests: "4 guests",
       area: "50 m²",
       bedSize: "king size",
       extraBed: "extra bed",
@@ -247,13 +258,15 @@ export default [
       food: "food",
     },
     extraTags: {
-      bedSize: "King size bed",
+      bedSize: "Full size bed",
       area: "45 m² area",
+      sauna: "Sauna",
       smoking: "No smoking",
       parking: "Free parking",
       bathroom: "Bathroom",
     },
     images: ["Sauna", "Sauna", "Sauna", "Sauna", "Sauna", "Sauna", "Sauna", "Sauna"],
+    imageText: "Meet warmth relaxation in the perfect harmony of nature",
     price: 90,
   },
 ];

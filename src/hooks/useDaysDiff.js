@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 import { useMemo } from "react";
 
 export default function useDaysDiff() {
-  const startDate = useSelector((state) => state.dates.startDate);
-  const endDate = useSelector((state) => state.dates.endDate);
+  const startDate = useSelector((state) => state.data.startDate);
+  const endDate = useSelector((state) => state.data.endDate);
 
   const daysDiff = useMemo(() => {
     if (!startDate || !endDate) return 0;

@@ -6,7 +6,7 @@ export default function VibeImages({ images }) {
         {orderedImages.map(({ name }) => (
           <img
             key={name}
-            src={`/images/MainPage/Slider/${name}.webp`}
+            src={`images/MainPage/Slider/${name}.webp`}
             alt={name}
             className="max-h-[120px] xs:max-w-[188px] xs:max-h-[164px]"
           />

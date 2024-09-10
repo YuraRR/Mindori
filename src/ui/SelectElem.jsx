@@ -1,20 +1,30 @@
+import React, { useRef, useEffect, useState } from "react";
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
-import { useEffect, useState } from "react";
 
-export default function SelectElem({ data, buttonText, defaultValue }) {
-  const [selectedItem, setSelectedItem] = useState(``);
-  useEffect(() => defaultValue && setSelectedItem(defaultValue), [defaultValue]);
+export default function SelectElem({ data, buttonText, defaultValue, action }) {
+  const [selectedItem, setSelectedItem] = useState(defaultValue);
+  const buttonRef = useRef(null);
+  const [optionsWidth, setOptionsWidth] = useState("auto");
+
+  useEffect(() => action(selectedItem), [selectedItem, action]);
+
+  useEffect(() => {
+    if (buttonRef.current) {
+      setOptionsWidth(buttonRef.current.offsetWidth);
+    }
+  }, [buttonRef.current]);
 
   return (
     <Listbox value={selectedItem} onChange={setSelectedItem}>
       {({ open }) => (
-        <div className="relative max-w-60 w-full">
+        <div className="relative w-full">
           <ListboxButton
-            className={`relative block border border-darkGreen text-lg text-left w-full max-w-60 h-12 sm:h-14 pl-3 pr-7 sm:pr-10 `}
+            ref={buttonRef}
+            className="relative block border border-darkGreen text-lg text-left w-full h-12 sm:h-14 pl-3 pr-7"
           >
             {selectedItem || buttonText}
             <img
-              src="/images/Icons/arrowDown.svg"
+              src="icons/arrowDown.svg"
               alt="arrow"
               className={`${
                 open ? "rotate-180" : ""
@@ -23,8 +33,9 @@ export default function SelectElem({ data, buttonText, defaultValue }) {
             <span className="text-12 font-light absolute left-3 -top-[8px] bg-lightBeige px-1">{buttonText}</span>
           </ListboxButton>
           <ListboxOptions
-            className={`absolute w-full bg-lightBeige transition duration-100 ease-in opacity-0 shadow-2xl text-lg`}
-            style={{ opacity: open ? 1 : 0 }}
+            className={`absolute bg-lightBeige transition-opacity duration-100 ease-in opacity-0 shadow-2xl text-lg z-10`}
+            style={{ opacity: open ? 1 : 0, width: `${optionsWidth}px` }}
+            anchor="bottom start"
           >
             {data.map((e) => (
               <ListboxOption

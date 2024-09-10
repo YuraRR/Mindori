@@ -1,78 +1,46 @@
 import styles from "./Header.module.css";
-import Button from "../../ui/Button/Button";
-import Burger from "../../ui/Burger/Burger";
-import LanguageButton from "../../ui/LanguageButton/LanguageButton";
-import { NavLink as RouterLink, useLocation, useNavigate } from "react-router-dom";
-
-import { Link as ScrollLink } from "react-scroll";
-import * as Scroll from "react-scroll";
+import Button from "src/ui/Button/Button";
+import Burger from "src/ui/Burger/Burger";
+import BurgerMenu from "../BurgerMenu";
+import NavLinks from "../NavLinks";
+import { useState } from "react";
 
 export default function Header() {
-  const path = useLocation().pathname;
-  const location = path.split("/")[1];
-  const navigate = useNavigate();
-  const scroller = Scroll.scroller;
+  const [isActive, setIsActive] = useState(false);
 
-  const links = [
-    { name: "Home", path: "/", scrollTo: "Home" },
-    { name: "Accommodation", scrollTo: "Accommodation" },
-    { name: "Attractions", scrollTo: "Attractions" },
-    { name: "Special Offers", path: "/certificate" },
-    { name: "Vibe", scrollTo: "Vibe" },
-    { name: "FAQ", scrollTo: "FAQ" },
-    { name: "Contacts", scrollTo: "Contacts" },
-  ];
-
-  const goToPageAndScroll = async (selector) => {
-    await navigate("/");
-    await scroller.scrollTo(selector, {
-      duration: 500,
-      smooth: true,
-      offset: -170,
-      spy: true,
+  function openMenu() {
+    setIsActive((prev) => {
+      document.body.style.overflow = !prev ? "hidden" : "";
+      return !prev;
     });
-  };
+  }
   return (
     <header className={styles.Header}>
-      <div className="container">
-        <div className="hidden lg:block">
+      <div className="container relative">
+        <div className="hidden lg:block text-xl font-normal leading-6">
           <nav className="flex justify-between py-6 mx-6 xl:mx-12 items-center">
-            {links.map((link) =>
-              location === "" && link.scrollTo ? (
-                <ScrollLink key={link.name} to={link.scrollTo} smooth={true} duration={500} offset={-170}>
-                  {link.name}
-                </ScrollLink>
-              ) : link.path ? (
-                <RouterLink key={link.name} to={link.path}>
-                  {link.name}
-                </RouterLink>
-              ) : (
-                <a key={link.name} onClick={() => goToPageAndScroll(link.scrollTo)}>
-                  {link.name}
-                </a>
-              )
-            )}
-            <Button className={"headerButton"}>Book now</Button>
-            <LanguageButton />
+            <NavLinks />
+            <Button className={"headerButton"} linkTo={"/booking"}>
+              Book now
+            </Button>
           </nav>
         </div>
         <div className="flex lg:hidden items-center justify-between">
-          <LanguageButton />
-          <nav className="flex items-center justify-between w-5/6 px-3">
+          <nav className="flex items-center justify-end w-full gap-8 pr-8">
             <a href="#">
-              <img src="/icons/telegram.svg" alt="telega" />
+              <img src="icons/telegram.svg" alt="telega" />
             </a>
             <a href="#">
-              <img src="/icons/whatsap.svg" alt="whatsap" />
+              <img src="icons/whatsap.svg" alt="whatsap" />
             </a>
             <a href="#">
-              <img src="/icons/instagram.svg" alt="instagram" />
+              <img src="icons/instagram.svg" alt="instagram" />
             </a>
-
-            <Burger />
           </nav>
+          <Burger {...{ isActive, openMenu }} />
         </div>
       </div>
+      <BurgerMenu {...{ isActive, openMenu }} />
     </header>
   );
 }

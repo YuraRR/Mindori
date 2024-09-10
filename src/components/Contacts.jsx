@@ -1,16 +1,32 @@
 import Socials from "./Socials";
 export default function Contacts() {
   return (
-    <section name="Contacts" className="py-10">
+    <section name="Contacts" className="mt-[120px]">
       <h2>Contacts</h2>
-      <div className="flex flex-col">
+      <div className="flex flex-col leading-8">
         <span>Our glamping is located 30 km from Tbilisi</span>
         <span>Adress: Georgia, Inner Kartli, Kaspi Municipality, Kavtiskhevi, </span>
-        <a href="https://www.google.com/maps?q=41.869560,44.448465" target="_blank" rel="noopener noreferrer">
+        <a
+          className="hover:text-darkGreen"
+          href="https://www.google.com/maps?q=41.869560,44.448465"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           41.869560 44.448465
         </a>
-        <a href="tel:+995323625043">Phone number: +995323625043</a>
-        <a href="mailto:mindori@gmail.com">Email: mindori@gmail.com</a>
+
+        <div>
+          <span>Phone number: </span>
+          <a className="hover:text-darkGreen" href="tel:+995323625043">
+            +995323625043
+          </a>
+        </div>
+        <div>
+          <span>Email:</span>
+          <a className="hover:text-darkGreen" href="mailto:mindori@gmail.com">
+            mindori@gmail.com
+          </a>
+        </div>
       </div>
       <Socials />
       <div className="w-full h-[350px] pt-8 pb-12">

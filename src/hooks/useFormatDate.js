@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 import { useMemo } from "react";
 
 export default function useFormatDate() {
-  const startDate = useSelector((state) => state.dates.startDate);
-  const endDate = useSelector((state) => state.dates.endDate);
+  const startDate = useSelector((state) => state.data.startDate);
+  const endDate = useSelector((state) => state.data.endDate);
   const formatDates = useMemo(() => {
     const firstDay = new Date(startDate);
     const lastDay = new Date(endDate);

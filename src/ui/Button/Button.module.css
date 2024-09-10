@@ -1,11 +1,39 @@
 .headerButton,
-.mainButton {
-  @apply bg-darkGreen text-white  flex justify-center items-center font-glock *:font-glock text-14 *:text-14 pt-2;
+.mainButton,
+.smallButton,
+.longButton,
+.fullButton,
+.longMobileButton {
+  @apply bg-darkGreen text-white  flex justify-center items-center font-glock *:font-glock text-10 sm:text-14 *:text-14 pt-2;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.07);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
+  &:active {
+    transform: scale(1);
+    transform: translateY(7px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
 }
+
 .headerButton {
   @apply w-40 h-10 leading-5;
   font-size: 14px;
 }
 .mainButton {
   @apply w-full max-w-[160px] sm:max-w-[200px] h-12 sm:h-14 leading-6;
+}
+.smallButton {
+  @apply w-full max-w-36  sm:max-w-40 h-12 sm:h-10 leading-6;
+}
+.longButton {
+  @apply w-full max-w-[250px] h-14 px-4 mx-auto;
+}
+.fullButton {
+  @apply w-full max-w-[343px] h-12;
+}
+.longMobileButton {
+  @apply w-full max-w-[200px] h-12 md:h-14;
 }

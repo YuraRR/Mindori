@@ -1,3 +1,7 @@
+.react-datepicker-popper {
+  z-index: 100 !important;
+}
+
 .react-datepicker__day {
   @apply w-8 h-8 font-canela !important;
 }
@@ -33,4 +37,7 @@
 .react-datepicker__month-select,
 .react-datepicker__year-select {
   @apply bg-transparent !important;
+}
+.react-datepicker__day--excluded {
+  @apply text-red !important;
 }

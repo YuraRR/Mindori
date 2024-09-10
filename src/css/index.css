@@ -24,14 +24,24 @@
 body {
   @apply bg-lightBeige;
 }
+body.modal-open {
+  overflow: hidden;
+  width: 100%;
+  padding-right: 11px;
+}
 .container {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  @apply px-4 md:px-10;
+  overflow-y: hidden;
+  @apply px-4 md:px-10 xl:px-20;
 }
 .adaptiveGrid {
   @apply grid grid-cols-1 gap-y-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 lg:gap-y-12;
+}
+.blur {
+  background: rgba(208, 208, 208, 0.4);
+  backdrop-filter: blur(3px);
 }
 h1 {
   font-size: clamp(30px, 48px, 3vw);
@@ -51,4 +61,69 @@ h3 {
 html {
   overflow-y: initial !important;
   padding-right: 0 !important;
+  overflow-x: hidden !important;
+}
+
+a {
+  position: relative;
+  width: fit-content;
+}
+
+a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  bottom: -2px;
+  left: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+}
+
+a:hover::before {
+  transform: scaleX(1);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.1);
+}
+
+@keyframes spin-smooth {
+  0% {
+    transform: rotate(0deg);
+    border-color: rgba(0, 0, 0, 0.5);
+    border-top-color: black;
+  }
+  50% {
+    transform: rotate(180deg);
+    border-color: rgba(0, 0, 0, 0.2);
+    border-top-color: #ff4500;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-color: rgba(0, 0, 0, 0.5);
+    border-top-color: black;
+  }
+}
+
+.animate-spin-smooth {
+  animation: spin-smooth 0.7s cubic-bezier(1, 1, 1, 1) infinite;
 }

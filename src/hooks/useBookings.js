@@ -12,7 +12,16 @@ export default function useBookings() {
         id: doc.id,
         ...doc.data(),
       }));
-      setBookings(bookingsData);
+
+      const filteredBookings = bookingsData.filter((booking) => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const startDate = new Date(booking.startDate);
+        const endDate = new Date(booking.endDate);
+        return startDate >= today && endDate > today;
+      });
+      setBookings(filteredBookings);
     };
 
     fetchBookings();

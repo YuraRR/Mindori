@@ -6,7 +6,7 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <main className="relative flex  flex-col">
+      <main className="relative flex flex-col">
         <Outlet />
       </main>
       <Footer />
